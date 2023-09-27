@@ -1,1 +1,15 @@
-HI
+name: hello-world
+on: push
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name : Testing Secrets
+        run: |
+          echo "$DEVOPS"
+        env:
+          DEVOPS: ${{ secrets.SECRETS_TOKEN }}
+          
+      - name: my-step
+        run: echo "Hello World! Lingababu"
