@@ -1,0 +1,26 @@
+name: My Starter Workflow
+on: 
+ workflow_dispatch
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - uses : actions/checkout@v3
+      - name : Run a multiline script
+        run: |
+          echo Add other action to build
+          echo test, deploy your project
+
+  call-workflow-In-local-repo:
+    #strategy
+    #matrix
+    # node version: [ 14, 16, 18, 20]
+
+    uses: ./.github/workflows/reusable-workflow-1.yml
+
+    with:
+      #node: $ {{ matrix.nodeversion }}
+      node: 8
+      
