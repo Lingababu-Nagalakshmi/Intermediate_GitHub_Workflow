@@ -9,7 +9,7 @@ Workflow_Name= str(sys.argv[4])
 parameter1= str(sys.argv[5])
 parameter2 = str(sys.argv[6])
 
-print( "the toke value is")
+print( "the token value is")
 def trigger_workflow(Workflow_Name,parameter1,parameter2):
 
       headers = {
@@ -28,9 +28,6 @@ def trigger_workflow(Workflow_Name,parameter1,parameter2):
       responseValue=requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches",json=data,headers=headers)
       print(responseValue.content)
       
-      responseValue=requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches",json=data,headers=headers)
-      print(responseValue.content)
-
       responseValue=requests.post(f"https://api.github.com/repos/{OWNER}/{REPO}/dispatches",json=data,headers=headers)
       print(responseValue.content)
 
