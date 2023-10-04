@@ -8,8 +8,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Run a multiline script
         run: |
-          echo Add other actions to build
-          echo test, deploy your project
+          echo "Add other actions to build"
+          echo "test, deploy your project"
 
   call-workflow-In-local-repo:
        #strategy
