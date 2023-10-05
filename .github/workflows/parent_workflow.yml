@@ -15,3 +15,6 @@ jobs:
 
       - name: Run Child Workflow
         uses: ./.github/workflows/child_workflow.yml  # Relative path to the child workflow file
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
