@@ -15,9 +15,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Trigger Nested Workflow
-        uses: ./.github/workflows/child_workflow.yml  # Relative path to the nested workflow file
+        uses: ./.github/workflows/child_workflow.yml  file
         with:
-          environment: 'mach-dev'
+          environment: 'math-main'
           app_id: prospector-data-api
-          ar_repo: trane-prospector
-          project_id: ${{ secrets.MACH_DEV_PROJECT_ID }}
+          ar_repo: Intermediate_GitHub_Workflow
+          project_id: ${{ secrets.PAT_TOKEN_GITHUB }}
