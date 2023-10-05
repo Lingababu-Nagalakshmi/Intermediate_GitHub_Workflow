@@ -23,7 +23,5 @@ jobs:
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           
       - name: Run Python Script
-        run: |
-          cd "$GITHUB_WORKSPACE/PythonScripts/"
-          python send_email.py
-          echo "Daily report performance done..."
+        run: python send_email.py
+             echo "Daily report performance done..."
