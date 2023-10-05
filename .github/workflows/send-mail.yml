@@ -25,7 +25,4 @@ jobs:
           python-version: 3.x
           
       - name: Run Python Script
-        run: |
-          cd "$GITHUB_WORKSPACE/PythonScripts/"
-          python send_email.py
-          echo "Daily report perfomance done..."
+        run: python send_email.py
