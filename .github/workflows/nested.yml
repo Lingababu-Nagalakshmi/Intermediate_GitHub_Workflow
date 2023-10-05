@@ -1,17 +1,19 @@
-name: Nested Workflow
-
+name: deploy_nested_workflow_02
 on:
   workflow_run:
-    workflows: ["Main Workflow"]
+    workflows: ["Build"]
     types:
       - completed
 
 jobs:
-  nested_job:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check Nested Workflow Parameters
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Deploy Application
       run: |
-        echo "Parameter 1: ${{ github.event.workflow_run.workflow_dispatch.inputs.parameter1 }}"
-        echo "API Key: ${{ env.API_KEY }}"
+        # Your deployment commands here
+        echo "Deploying the application..."
