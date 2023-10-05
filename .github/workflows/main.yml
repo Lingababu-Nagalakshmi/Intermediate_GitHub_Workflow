@@ -13,10 +13,10 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
       with:
-        Default : ${{ github.repository }}
+        repository: ${{ github.repository }} # Corrected the 'with' parameter
 
     - name: Run Build Workflow
-      uses: ./.github/workflows/build.yml  # Relativ e path to the Build workflow file
+      uses: ./.github/workflows/build.yml  # Relative path to the Build workflow file
       with:
         some_input: "value"  # You can pass inputs to the nested workflow
 
