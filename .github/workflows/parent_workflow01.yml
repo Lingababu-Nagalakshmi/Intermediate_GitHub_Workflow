@@ -1,0 +1,23 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-job-dev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Trigger Nested Workflow
+        uses: ./.github/workflows/child_workflow.yml  # Relative path to the nested workflow file
+        with:
+          environment: 'mach-dev'
+          app_id: prospector-data-api
+          ar_repo: trane-prospector
+          project_id: ${{ secrets.MACH_DEV_PROJECT_ID }}
