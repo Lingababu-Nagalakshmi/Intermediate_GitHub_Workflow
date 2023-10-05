@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Run Build Workflow
-      uses: ./.github/workflows/nested_01.yml  # Relative path to the Build workflow file
+      uses: ./.github/workflows/build.yml  # Relative path to the Build workflow file
       with:
-        some_input: "DevopsHint"  ## You can pass inputs to the nested workflow
+        some_input: "value"  # You can pass inputs to the nested workflow
 
     - name: Run Deploy Workflow
-      uses: ./.github/workflows/nested.yml  # Relative path to the Deploy workflow file
+      uses: ./.github/workflows/deploy.yml  # Relative path to the Deploy workflow file
