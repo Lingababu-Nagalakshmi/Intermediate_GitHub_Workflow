@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      
-      - uses: action/checkout@v2
-      - uses: action/setup-python@v2
-      
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: 3.x
+
       - name: Run email code
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
