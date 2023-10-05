@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Backup Database
         run: |
-          # Your backup script here
+          PythonScripts/cronjob.py
           echo "Performing daily backup..."
