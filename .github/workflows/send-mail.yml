@@ -24,4 +24,4 @@ jobs:
           
       - name: Run Python Script
         run: python send_email.py
-             echo "Daily report performance done..."
+          echo "Daily report performance done..."
