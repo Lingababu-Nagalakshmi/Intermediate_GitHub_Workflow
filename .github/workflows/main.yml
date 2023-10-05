@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+      with:
+        Default : ${{ github.repository }}
 
     - name: Run Build Workflow
       uses: ./.github/workflows/build.yml  # Relativ e path to the Build workflow file
