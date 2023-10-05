@@ -16,7 +16,7 @@ jobs:
     - name: Run Build Workflow
       uses: ./.github/workflows/nested_01.yml  # Relative path to the Build workflow file
       with:
-        some_input: "DevopsHint"  # You can pass inputs to the nested workflow
+        some_input: "DevopsHint"  ## You can pass inputs to the nested workflow
 
     - name: Run Deploy Workflow
       uses: ./.github/workflows/nested.yml  # Relative path to the Deploy workflow file
