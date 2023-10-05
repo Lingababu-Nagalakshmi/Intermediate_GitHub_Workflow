@@ -1,4 +1,4 @@
-name: deploy_nested_workflow_02
+name: deploy_workflow_02
 on:
   workflow_run:
     workflows: ["Build"]
