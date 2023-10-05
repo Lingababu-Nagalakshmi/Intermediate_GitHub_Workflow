@@ -1,0 +1,26 @@
+name: parent_workflow01
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-job-main:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Trigger Nested Workflow
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: bearer ${{ secrets.PAT_TOKEN_GITHUB }}" \
+          "https://api.github.com/repos/${{ github.repository }}/actions/workflows/child_workflow.yml/dispatches" \
+          -d '{"ref":"main"}'
+        env:
+          environment: 'math-main'
+          ar_repo: Intermediate_GitHub_Workflow
