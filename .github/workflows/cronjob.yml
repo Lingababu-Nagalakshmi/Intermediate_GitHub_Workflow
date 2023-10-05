@@ -1,25 +1,14 @@
-name: Daily Backup
+name: cronjob
 
-on:
+on: 
   schedule:
-    - cron: '*/2 * * * *'  # Run at midnight every day
-
+    - cron: '*/2 * * * *'
+    
+    
 jobs:
-  backup:
+  my-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.1
-
-      - name: Run Backup Script
-        run: |
-          cd "$GITHUB_WORKSPACE/PythonScripts/"
-          python cronjob.py
-          echo "Performing daily backup..."
-
+     
+      - name: first-steps
+        run: echo "hello world"
