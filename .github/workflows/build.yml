@@ -15,4 +15,4 @@ jobs:
     - name: Build Application
       run: |
         # Your build commands here
-        echo "Building the application...."
+        echo "Building the application..."
