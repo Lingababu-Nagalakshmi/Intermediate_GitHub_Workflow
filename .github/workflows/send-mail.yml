@@ -16,9 +16,7 @@ jobs:
       
         with:
           python-version: 3.x
-          
-        - name: Run email code
-          
-          env:
-            USER_EMAIL: ${{ secrets.USER_EMAIL }}
-            USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
+      - name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
