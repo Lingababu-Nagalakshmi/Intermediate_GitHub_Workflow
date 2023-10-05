@@ -1,0 +1,13 @@
+name: Child Workflow
+
+on:
+  workflow_run:
+    workflows: ["Parent Workflow"]  # Name of the parent workflow
+
+jobs:
+  child_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Child Step
+        run: echo "This is a step in the child workflow."
