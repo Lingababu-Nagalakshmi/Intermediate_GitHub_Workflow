@@ -1,4 +1,4 @@
-name: build_nested_workflow_01
+name: build_workflow_01
 on:
   push:
     branches:
