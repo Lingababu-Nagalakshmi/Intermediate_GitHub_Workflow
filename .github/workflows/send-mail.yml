@@ -1,16 +1,14 @@
 name: Daily Report
 
-on: 
+on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-    
     
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-     
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -22,10 +20,10 @@ jobs:
       - name: Run email code
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
           
       - name: Run Python Script
         run: |
           cd "$GITHUB_WORKSPACE/PythonScripts/"
           python send_email.py
-          echo "Daily report perfomance done..."
+          echo "Daily report performance done..."
