@@ -17,7 +17,7 @@ jobs:
       - name: Trigger Nested Workflow
         run: |
         "https://api.github.com/repos/${{ github.repository }}/actions/workflows/child_workflow.yml/dispatches" \
-          -d '{"ref":"main"}'
+        -d '{"ref":"main"}'
         with:
           environment: 'math-main'
           #app_id: prospector-data-api
