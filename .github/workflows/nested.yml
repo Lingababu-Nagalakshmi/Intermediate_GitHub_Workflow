@@ -16,4 +16,4 @@ jobs:
     - name: Deploy Application
       run: |
         # Your deployment commands here
-        echo "Deploying the application..."
+        echo "Deploying the application...."
