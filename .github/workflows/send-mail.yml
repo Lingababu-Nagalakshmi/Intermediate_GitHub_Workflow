@@ -1,4 +1,4 @@
-name: send_mail
+name: Daily Report
 
 on: 
   schedule:
