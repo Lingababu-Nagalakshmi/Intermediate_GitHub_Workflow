@@ -16,10 +16,11 @@ jobs:
 
       - name: Trigger Nested Workflow
         run: |
-        "https://api.github.com/repos/${{ github.repository }}/actions/workflows/child_workflow.yml/dispatches" \
-        -d '{"ref":"main"}'
-        with:
+          curl -X POST \
+          -H "Accept: application/vnd.github.everest-preview+json" \
+          -H "Authorization: bearer ${{ secrets.PAT_TOKEN_GITHUB }}" \
+          "https://api.github.com/repos/${{ github.repository }}/actions/workflows/child_workflow.yml/dispatches" \
+          -d '{"ref":"main"}'
+        env:
           environment: 'math-main'
-          #app_id: prospector-data-api
           ar_repo: Intermediate_GitHub_Workflow
-          project_id: ${{ secrets.PAT_TOKEN_GITHUB }}
