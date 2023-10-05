@@ -16,6 +16,6 @@ jobs:
     - name: Run Nested Workflow
       uses: ./.github/workflows/nested.yml
       with:
-        parameter1: 555  ## Pass a parameter
+        parameter1: 555  ### Pass a parameter
       env:
         API_KEY: ${{ secrets.API_KEY }}  # Pass an API key from secrets
