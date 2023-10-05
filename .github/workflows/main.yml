@@ -1,0 +1,21 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Nested Workflow
+      uses: ./.github/workflows/nested.yml
+      with:
+        parameter1: some-value  # Pass a parameter
+      env:
+        API_KEY: ${{ secrets.API_KEY }}  # Pass an API key from secrets
