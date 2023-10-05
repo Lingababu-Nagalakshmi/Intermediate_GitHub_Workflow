@@ -1,4 +1,4 @@
-name: Main Workflow
+name: parent_workflow01
 
 on:
   push:
