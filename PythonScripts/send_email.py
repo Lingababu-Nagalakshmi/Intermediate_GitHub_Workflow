@@ -1,4 +1,4 @@
-import smtblib, ssl
+import smtplib, ssl
 import os
 
 port = 465
