@@ -1,0 +1,15 @@
+name: Daily Backup
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run at midnight every day
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Backup Database
+        run: |
+          # Your backup script here
+          echo "Performing daily backup..."
