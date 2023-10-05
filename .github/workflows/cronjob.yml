@@ -9,7 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Backup Database
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.1
+
+      - name: Run Backup Script
         run: |
-          PythonScripts/cronjob.py
+          cd "$GITHUB_WORKSPACE/PythonScripts/"
+          python cronjob.py
           echo "Performing daily backup..."
+
