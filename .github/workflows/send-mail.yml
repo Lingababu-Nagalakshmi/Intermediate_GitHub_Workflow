@@ -1,9 +1,10 @@
 name: Daily Report
 
-on:
+on: 
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
+    
     
 jobs:
   my-job:
@@ -11,23 +12,19 @@ jobs:
     steps:
      
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.x
+          python-version: 3.8
           
       - name: Run email code
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
       
-      - name: Run Python Script
+      - name: Trigger the Workflow
         run: |
-          cd "$GITHUB_WORKSPACE/Intermediate_GitHub_Workflow/PythonScripts"
-          python send_email.py
-          
-      - name: Add Execute Permissions
-        run: chmod +x send_email.py
-        working-directory: $GITHUB_WORKSPACE/Intermediate_GitHub_Workflow/PythonScripts
+         cd "$GITHUB_WORKSPACE/PythonScripts/"
+         python $GITHUB_WORKSPACE/PythonScripts/send_email.py
