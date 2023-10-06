@@ -1,10 +1,9 @@
 name: Daily Report
 
-on: 
+on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-    
     
 jobs:
   my-job:
@@ -32,6 +31,3 @@ jobs:
       - name: Add Execute Permissions
         run: chmod +x send_email.py
         working-directory: $GITHUB_WORKSPACE/Intermediate_GitHub_Workflow/PythonScripts
-    
-      
-      
