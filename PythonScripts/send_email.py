@@ -1,43 +1,28 @@
 import smtplib
-import base64
-import os
 import ssl
+import os
 
+#sender_email = os.environ.get('USER_EMAIL')
+sender_email = "guggilapulingababu1@gmail.com"
+#password = os.environ.get('USER_PASSWORD')
+password = "UGFzc3dvcmQ6"
+
+
+
+print("sender_email:", sender_email)
+print("password:", password)
 
 smtp_server = "smtp.gmail.com"
-port = 587  
-sender_email = os.environ.get('USER_EMAIL')
-
-print("Before retrieving password")
-password = os.environ.get('USER_PASSWORD')
-print("After retrieving password",password)
-
-
-if password is not None and isinstance(password, str):
-    password_base64 = base64.b64encode(password.encode()).decode()
-else:
-    print("Password is not defined or is not a valid string.")
-    print("Password",password)
-
+port = 465  # Google SMTP port
 message = "***************Subject: GitHub Email report****************"
-   
+
 context = ssl.create_default_context()
 
 try:
-    server = smtplib.SMTP(smtp_server,port)
-    server.ehlo() 
-    server.starttls(context=context) 
-    server.ehlo() 
-    server.login(sender_email, password)
-    server.sendmail(sender_email,password,message)
-   
+    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+        server.login(sender_email, password)
+        server.sendmail(sender_email,password,message)
+except smtplib.SMTPAuthenticationError as e:
+    print("SMTP Authentication Error:", e)
 except Exception as e:
-   
-    print(e)
-finally:
-    server.quit()
-    
-    
-
-
-
+    print("An error occurred:", e)
