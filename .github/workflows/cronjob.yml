@@ -2,7 +2,7 @@ name: cronjob
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    #- cron: '*/5 * * * *'
     
 jobs:
   my-job:
