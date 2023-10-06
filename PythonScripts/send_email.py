@@ -1,24 +1,15 @@
 import smtplib
-import ssl
-import os
 
-sender_email = os.environ.get('USER_EMAIL')
-password = os.environ.get('USER_PASSWORD')
+sender_email ="gowtham.j2012@gmail.com"
+password = "hhup fxaq vsdm wkhc"
+rec_email = "lingababu987@gmail.com"
 
-print("sender_email:", sender_email)
-print("password:", password)
+message = "Hey this was sent using python"
 
-smtp_server = "smtp.gmail.com"
-port = 465  # Google SMTP port
-message = "***************Subject: GitHub Email report****************"
 
-context = ssl.create_default_context()
-
-try:
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        server.login(sender_email, password)
-        server.sendmail(sender_email,password,message)
-except smtplib.SMTPAuthenticationError as e:
-    print("SMTP Authentication Error:", e)
-except Exception as e:
-    print("An error occurred:", e)
+server = smtplib.SMTP('smtp.gmail.com',587)
+server.starttls
+server.login(sender_email,password)
+print("Login success")
+server.sendmail(sender_email, rec_email, message)
+print("Email has been sent to", rec_email)
