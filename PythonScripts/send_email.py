@@ -7,12 +7,17 @@ import ssl
 smtp_server = "smtp.gmail.com"
 port = 587  
 sender_email = os.environ.get('USER_EMAIL')
+
+print("Before retrieving password")
 password = os.environ.get('USER_PASSWORD')
+print("After retrieving password",password)
+
 
 if password is not None and isinstance(password, str):
     password_base64 = base64.b64encode(password.encode()).decode()
 else:
     print("Password is not defined or is not a valid string.")
+    print("Password",password)
 
 message = "***************Subject: GitHub Email report****************"
    
