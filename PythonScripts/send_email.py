@@ -5,8 +5,11 @@ import base64
 
 port = 465
 smtp_server = "smtp.gmail.com"
-USERNAME = os.environ.get('USER_EMAIL')
-PASSWORD = os.environ.get('USER_PASSWORD')
+#USERNAME = os.environ.get('USER_EMAIL')
+#PASSWORD = os.environ.get('USER_PASSWORD')
+
+USERNAME = 'guggilapulingababu1@gmail.com'
+PASSWORD = '321@NagaLinga'
 
 print("Username:", USERNAME)
 print("Password:", PASSWORD)
