@@ -23,5 +23,15 @@ jobs:
         env:
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
-        run: python send_email.py  
+      
+      - name: Run Python Script
+        run: |
+          cd "$GITHUB_WORKSPACE/Intermediate_GitHub_Workflow/PythonScripts"
+          python send_email.py
+          
+      - name: Add Execute Permissions
+        run: chmod +x send_email.py
+        working-directory: $GITHUB_WORKSPACE/Intermediate_GitHub_Workflow/PythonScripts
+    
+      
       
