@@ -6,8 +6,8 @@ port = 587
 # sender_email = "guggilapulingababu1@gmail.com"
 # password = "321@NagaLinga"
 
-USERNAME = os.environ.get('USER_EMAIL')
-PASSWORD = os.environ.get('USER_PASSWORD')
+sender_email = os.environ.get('USER_EMAIL')
+password = os.environ.get('USER_PASSWORD')
 
 
 
