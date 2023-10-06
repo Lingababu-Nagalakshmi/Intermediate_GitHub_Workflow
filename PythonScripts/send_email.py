@@ -2,12 +2,8 @@ import smtplib
 import ssl
 import os
 
-#sender_email = os.environ.get('USER_EMAIL')
-sender_email = "guggilapulingababu1@gmail.com"
-#password = os.environ.get('USER_PASSWORD')
-password = "UGFzc3dvcmQ6"
-
-
+sender_email = os.environ.get('USER_EMAIL')
+password = os.environ.get('USER_PASSWORD')
 
 print("sender_email:", sender_email)
 print("password:", password)
