@@ -1,31 +1,28 @@
-import smtplib
-import ssl
-
-USERNAME = "guggilapulingababu1@gmail.com"
-# Use the App Password you generated for your application
-PASSWORD = "321@NagaLinga"
-
-print("Username:", USERNAME)
-print("Password:", PASSWORD)
-
-
-
+import smtplib, ssl
 
 smtp_server = "smtp.gmail.com"
-port = 465  # Google SMTP port
+port = 587  
+sender_email = "guggilapulingababu1@gmail.com"
+password = "321@NagaLinga"
 
 
-message = '''
-Subject: GitHub Email report
-This is your daily email Report.
-'''
+
+message = "***************Subject: GitHub Email report****************"
+   
+
 context = ssl.create_default_context()
 
+
 try:
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        server.login(USERNAME, PASSWORD)
-        server.sendmail(USERNAME,PASSWORD,message)
-except smtplib.SMTPAuthenticationError as e:
-    print("SMTP Authentication Error:", e)
+    server = smtplib.SMTP(smtp_server,port)
+    server.ehlo() 
+    server.starttls(context=context) 
+    server.ehlo() 
+    server.login(sender_email, password)
+    server.sendmail(sender_email,password,message)
+   
 except Exception as e:
-    print("An error occurred:", e)
+   
+    print(e)
+finally:
+    server.quit()
