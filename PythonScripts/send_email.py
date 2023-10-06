@@ -1,9 +1,13 @@
 import smtplib, ssl
+import os
 
 smtp_server = "smtp.gmail.com"
 port = 587  
-sender_email = "guggilapulingababu1@gmail.com"
-password = "321@NagaLinga"
+# sender_email = "guggilapulingababu1@gmail.com"
+# password = "321@NagaLinga"
+
+USERNAME = os.environ.get('USER_EMAIL')
+PASSWORD = os.environ.get('USER_PASSWORD')
 
 
 
