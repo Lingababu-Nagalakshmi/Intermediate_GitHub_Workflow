@@ -1,0 +1,30 @@
+name: Daily Report
+
+on: 
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+    
+    
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+     
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+          
+      #- name: Run email code
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD}}
+      
+      - name: Trigger the Workflow
+        run: |
+         cd "$GITHUB_WORKSPACE/PythonScripts/"
+         python $GITHUB_WORKSPACE/PythonScripts/send_email.py
