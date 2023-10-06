@@ -24,7 +24,7 @@ context = ssl.create_default_context()
 try:
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
         server.login(USERNAME, PASSWORD)
-        server.sendmail(USERNAME,USERNAME,message)
+        server.sendmail(USERNAME,PASSWORD,message)
 except smtplib.SMTPAuthenticationError as e:
     print("SMTP Authentication Error:", e)
 except Exception as e:
