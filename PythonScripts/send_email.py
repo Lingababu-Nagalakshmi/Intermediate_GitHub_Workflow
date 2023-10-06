@@ -20,14 +20,7 @@ This is your daily email Report.
 """
 
 # Replace with your actual method to get the password
-
-if PASSWORD is not None:
-    password_base64 = base64.b64encode(PASSWORD.encode()).decode()
-else:
-    print("Password is not defined or is None.")
-
-
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL(smtp_server,port,context=context) as server:
-    server.login(USERNAME,password_base64)
-    server.sendmail(USERNAME,password_base64,message)
+    server.login(USERNAME,PASSWORD)
+    server.sendmail(USERNAME,PASSWORD,message)
